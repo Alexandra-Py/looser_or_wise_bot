@@ -1,30 +1,13 @@
 import telebot
 import os
-import redis
 
 
 token = os.environ["TELEGRAM_TOKEN"]
 bot = telebot.TeleBot(token)
 
 
-REDIS_URL=os.environ.get("REDIS_URL")
-dict_db={}
 
 
-def save(key,value):
-     if REDIS_URL:
-         redis_db = redis.from_url(REDIS_URL)
-         redis_db.set(key,value)
-     else:
-         dict_db[key]=value
-
-
-def load(key):
-    if REDIS_URL:
-        redis_db = redis.from_url(REDIS_URL)
-        return redis_db.get(key,default="main")
-    else:
-        return dict_db.get(key,default="main")
 
 Data = {"game_score": {"victories": 0, 'defeats': 0, "motions": 0},
         "frases": {
@@ -34,6 +17,8 @@ Data = {"game_score": {"victories": 0, 'defeats': 0, "motions": 0},
             "congratulations": ["Супер! Ты угадал)", "Ты крут!", "Так держать!", "Вот это смекалка) Правильно!",
                                 "Это правильный ответ!"]
         },
+        "states" : {},
+        "call_states" : {},
         "helpers": {}
         }
 
