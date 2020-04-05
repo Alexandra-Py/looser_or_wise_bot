@@ -1,6 +1,6 @@
+from random import choice
 
 from bot_instance import bot, Data, MAIN_STATE
-from random import choice
 from keyboards import kb
 
 
@@ -26,4 +26,3 @@ def is_end(call):
         Data["states"][call.from_user] = MAIN_STATE
     elif Data["game_score"]["motions"] < 15:
         bot.send_message(call.from_user.id, "Продолжаешь?", reply_markup=kb)
-

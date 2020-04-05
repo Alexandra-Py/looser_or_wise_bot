@@ -1,8 +1,10 @@
-from bot_instance import bot, Data
-import requests
 import random
-from telebot.types import InlineKeyboardMarkup as ILM
+
+import requests
 from telebot.types import InlineKeyboardButton as ILbutton
+from telebot.types import InlineKeyboardMarkup as ILM
+
+from bot_instance import bot, Data
 
 
 def api_request(call, complexity):

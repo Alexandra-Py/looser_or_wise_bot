@@ -1,9 +1,9 @@
-from bot_instance import bot, Data,  COMPLEXITY_STATE, MAIN_STATE
 from random import choice
+
 from api_request import api_request
+from bot_instance import bot, Data, COMPLEXITY_STATE, MAIN_STATE
 from functions import is_end
 from keyboards import kb
-
 
 
 def main_handler(message):
@@ -13,16 +13,16 @@ def main_handler(message):
         Data["states"][message.from_user.id] = COMPLEXITY_STATE
     else:
         bot.send_message(message.chat.id, 'Я уже ушёл')
-        Data["states"][message.from_user.id] =MAIN_STATE
+        Data["states"][message.from_user.id] = MAIN_STATE
 
 
 def complexity_handler(message):
     if message.text.lower() == "привет" or message.text.lower() == "да" or "хочу" in message.text.lower() or "задание" in message.text.lower():
         bot.send_message(message.from_user.id, "Выбери сложность:", reply_markup=kb)
-        Data["states"][message.from_user.id] =MAIN_STATE
+        Data["states"][message.from_user.id] = MAIN_STATE
     else:
         bot.send_message(message.from_user.id, "Я тебя не понял")
-        Data["states"][message.from_user.id] =COMPLEXITY_STATE
+        Data["states"][message.from_user.id] = COMPLEXITY_STATE
 
 
 def callback_handler(call):

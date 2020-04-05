@@ -1,13 +1,9 @@
-import telebot
 import os
 
+import telebot
 
 token = os.environ["TELEGRAM_TOKEN"]
 bot = telebot.TeleBot(token)
-
-
-
-
 
 Data = {"game_score": {"victories": 0, 'defeats': 0, "motions": 0},
         "frases": {
@@ -17,8 +13,8 @@ Data = {"game_score": {"victories": 0, 'defeats': 0, "motions": 0},
             "congratulations": ["Супер! Ты угадал)", "Ты крут!", "Так держать!", "Вот это смекалка) Правильно!",
                                 "Это правильный ответ!"]
         },
-        "states" : {},
-        "call_states" : {},
+        "states": {},
+        "call_states": {},
         "helpers": {}
         }
 
