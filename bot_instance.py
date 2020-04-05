@@ -24,7 +24,7 @@ def load(key):
         redis_db = redis.from_url(REDIS_URL)
         return redis_db.get(key)
     else:
-        return dict_db.get(key)
+        return dict_db.get(key,default="main")
 
 Data = {"game_score": {"victories": 0, 'defeats': 0, "motions": 0},
         "frases": {
