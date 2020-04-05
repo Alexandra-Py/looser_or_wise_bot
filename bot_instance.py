@@ -22,7 +22,7 @@ def save(key,value):
 def load(key):
     if REDIS_URL:
         redis_db = redis.from_url(REDIS_URL)
-        return redis_db.get(key)
+        return redis_db.get(key,default="main")
     else:
         return dict_db.get(key,default="main")
 
